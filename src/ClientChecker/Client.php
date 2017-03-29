@@ -13,11 +13,15 @@ class Client
     protected $ua = null;
     protected $ip = null;
     protected $db = null;
+    protected $locale = null;
+    protected $regexes = null;
 
-    public function __construct($ua, $ip, $db) {
+    public function __construct($ua, $ip, $db, $locale = 'en', $regexes = null) {
         $this->ua = $ua;
         $this->ip = $ip;
         $this->db = $db;
+        $this->locale = $locale;
+        $this->regexes = $regexes;
     } 
 
     public function isMobile()
@@ -31,7 +35,7 @@ class Client
               'PlayStation 3',
               'PlayStation Portable'
           );
-        $parser = Parser::create();
+        $parser = Parser::create($this->regexes);
         $result = $parser->parse($this->ua);
         $isMobile = !in_array($result->device->family, $notMobile);
         return $isMobile;
@@ -39,7 +43,7 @@ class Client
 
     public function getOs()
     {
-        $parser = Parser::create();
+        $parser = Parser::create($this->regexes);
         $result = $parser->parse($this->ua);
         $system = ($result->os->toString() == "Other") ? "Unknown" : $result->os->toString();
         return $system;
@@ -47,7 +51,7 @@ class Client
 
     public function getBrowser()
     {
-        $parser = Parser::create();
+        $parser = Parser::create($this->regexes);
         $result = $parser->parse($this->ua);
         $browser = ($result->ua->toString() == "Other") ? "Unknown" : $result->ua->toString();
         return $browser;
@@ -55,7 +59,7 @@ class Client
 
     public function getIpData()
     {
-        $reader = new Reader($this->db, array('ru'));
+        $reader = new Reader($this->db, array($this->locale));
         $data = array();
         try {
             $resp = $reader->city($this->ip);
