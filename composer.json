@@ -1,0 +1,36 @@
+{
+    "name": "kipkaev/client-checker",
+    "description": "The GEO Definition Library, browser, OS and client type",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Valerii Kipkaev",
+            "email": "kipkaev@kipkaev.name"
+        },
+        {
+            "name": "Gregory J. Oschwald",
+            "email": "goschwald@maxmind.com",
+            "homepage": "http://www.maxmind.com/"
+        },
+        {
+            "name": "Dave Olsen",
+            "email": "dmolsen@gmail.com"
+        },
+        {
+            "name": "Lars Strojny",
+            "email": "lars@strojny.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "geoip2/geoip2": "~2.0",
+        "ua-parser/uap-php": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "ClientChecker": "src/"
+        }
+    }
+}
