@@ -55,16 +55,37 @@ $client = new Client(
     '172.68.11.66',
     './GeoLite2-City.mmdb'
 );
-echo ($client->isMobile()) ? 'true' : 'false';
+/*
+
+or
+
+$client = new Client(
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 YaBrowser/17.3.1.838 Yowser/2.5 Safari/537.36',
+    '172.68.11.66',
+    './GeoLite2-City.mmdb',
+    'ru'
+); //russian locale (supports [en, de, es, fr, ja, pt-BR, ru, zh-CN])
+
+or
+
+$client = new Client(
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 YaBrowser/17.3.1.838 Yowser/2.5 Safari/537.36',
+    '172.68.11.66',
+    './GeoLite2-City.mmdb',
+    'ru',
+    'path/to/custom/regexes.php'
+); //custom regexes and russian locale
+*/
+echo ($client->isMobile()) ? 'true' : 'false';    //false
 echo "\n";
-echo $client->getOs();      //Mac OS X 10.12.4
+echo $client->getOs();                            //Mac OS X 10.12.4
 echo "\n";
-echo $client->getBrowser(); //Yandex Browser 17.3.1
+echo $client->getBrowser();                       //Yandex Browser 17.3.1
 echo "\n";
 $geo = $client->getIpData();
-echo $geo['country'];       //RU
+echo $geo['country'];                             //RU
 echo "\n"; 
-echo $geo['city'];          //Москва
+echo $geo['city'];                                //Moscow
 echo "\n";
 ```
 
