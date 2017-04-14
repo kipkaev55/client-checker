@@ -19,7 +19,7 @@ class Client
 
     const SX_GEO             = 'sypex';
     const GEO_IP             = 'geoip';
-    const FIRST              = 'geoip';
+    const FIRST              = 'sypex';
     const MESSAGE_DB_NOT_SET = 'DB not set';
 
     public function __construct($ua, $ip, $db, $locale = 'en', $regexes = null) {
