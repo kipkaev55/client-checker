@@ -53,7 +53,10 @@ use ClientChecker\Client;
 $client = new Client(
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 YaBrowser/17.3.1.838 Yowser/2.5 Safari/537.36',
     '172.68.11.66',
-    './GeoLite2-City.mmdb'
+    array(                                      //
+          'geoip' => './GeoLite2-City.mmdb',    // on version 1.0.0 use './GeoLite2-City.mmdb' instead array()
+          'sypex' => './SxGeoCity.dat'          //
+      )                                         //
 );
 /*
 
