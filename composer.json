@@ -26,7 +26,8 @@
     "require": {
         "php": ">=5.4.0",
         "geoip2/geoip2": "~2.0",
-        "ua-parser/uap-php": "*"
+        "ua-parser/uap-php": "*",
+        "kipkaev55/sxgeo":"1.0.0"
     },
     "autoload": {
         "psr-0": {
