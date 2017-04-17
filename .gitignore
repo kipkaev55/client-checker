@@ -17,3 +17,5 @@ desktop.ini
 # the composer package lock file and install directory
 /composer.lock
 /vendor
+/GeoLite2-City.mmdb
+/SxGeoCity.dat

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit colors="true" stopOnFailure="false" bootstrap="./bootstrap_phpunit.php">
+  <php>
+    <server name="app_path" value="./"/>
+    <server name="vendor_path" value="./vendor"/>
+  </php>
+  <testsuites>
+    <testsuite name="app">
+      <directory suffix=".php">./tests/units</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>
