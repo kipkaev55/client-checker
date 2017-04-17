@@ -114,7 +114,7 @@ class Client
                 }
                 $data['city'] = $city;
 
-            } catch (GeoIp2\Exception\AddressNotFoundException $e) {
+            } catch (\GeoIp2\Exception\AddressNotFoundException $e) {
                 if((ip2long($this->ip) >= 167772160 && ip2long($this->ip) <= 184549375)
                     || (ip2long($this->ip) >= 2886729728 && ip2long($this->ip) <= 2887778303)
                     || (ip2long($this->ip) >= 3232235520 && ip2long($this->ip) <= 3232301055)) { //networks classes A,B,C
