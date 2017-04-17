@@ -25,7 +25,7 @@ You should now have the file `composer.phar` in your project directory.
 Run in your project root:
 
 ```
-php composer.phar require kipkaev55/client-checker:1.1.2
+php composer.phar require kipkaev55/client-checker:1.1.3
 ```
 
 You should now have the files `composer.json` and `composer.lock` as well as
