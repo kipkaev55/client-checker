@@ -22,7 +22,7 @@ class IpTest extends TestCase
             'sypex' => DOCROOT.'/SxGeoCity.dat'
           )
         );
-        $this->assertEquals(array('country' => "LO", 'city' => "Local Network"), $client->getIpData());
+        $this->assertEquals(array('country' => "LO", 'region' => "Local Network", 'city' => "Local Network"), $client->getIpData());
     }
 
     public function ip_ProviderLocal()
@@ -52,7 +52,7 @@ class IpTest extends TestCase
             'sypex' => DOCROOT.'/SxGeoCity.dat'
           )
         );
-        $this->assertEquals(array('country' => "LO", 'city' => "Loopback"), $client->getIpData());
+        $this->assertEquals(array('country' => "LO", 'region' => "Loopback", 'city' => "Loopback"), $client->getIpData());
     }
 
     public function ip_ProviderLoopback()
@@ -80,6 +80,7 @@ class IpTest extends TestCase
         $data = $client->getIpData();
         $this->assertInternalType("array", $data);
         $this->assertArrayHasKey('country', $data);
+        $this->assertArrayHasKey('region', $data);
         $this->assertArrayHasKey('city', $data);
     }
     public function ip_Provider()

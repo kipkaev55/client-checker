@@ -25,7 +25,7 @@ You should now have the file `composer.phar` in your project directory.
 Run in your project root:
 
 ```
-php composer.phar require kipkaev55/client-checker:1.1.3
+php composer.phar require kipkaev55/client-checker:1.1.*
 ```
 
 You should now have the files `composer.json` and `composer.lock` as well as
@@ -53,10 +53,18 @@ use ClientChecker\Client;
 $client = new Client(
     'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 YaBrowser/17.3.1.838 Yowser/2.5 Safari/537.36',
     '172.68.11.66',
-    array(                                      //
-          'geoip' => './GeoLite2-City.mmdb',    // on version 1.0.0 use './GeoLite2-City.mmdb' instead array()
-          'sypex' => './SxGeoCity.dat'          //
-      )                                         //
+    array(                                              // on version 1.0.0 use './GeoLite2-City.mmdb' instead array()
+          'dbip' => array(                              //
+            'type' => 'mysql',                          //
+            'host' => '127.0.0.1',                      //
+            'db' => 'dbip',                             //
+            'user' => 'root',                           //
+            'password' => '123456'                      //
+          ),                                            //
+          'sypex' => './SxGeoCity.dat',                 //
+          // 'geoip' => './GeoLite2-City.mmdb',         //
+          'sorting' => array('sypex', 'dbip', 'geoip')   //
+    )                                                   //
 );
 /*
 
